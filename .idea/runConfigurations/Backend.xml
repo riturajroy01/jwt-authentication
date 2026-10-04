@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" name="Backend">
+    <module name="auth-backend" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.auth.backend.AuthBackendApplication" />
+    <option name="ALTERNATIVE_JRE_PATH" value="21" />
+  </configuration>
+</component>

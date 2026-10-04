@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Register</title><link rel="stylesheet" href="/css/style.css"></head>
+<body><main class="card"><h1>Create account</h1><form id="registerForm"><label>Username<input id="username" required minlength="3"></label><label>Email<input id="email" type="email" required></label><label>Password<input id="password" type="password" required minlength="8"></label><button>Register</button></form><p id="message"></p><a href="/login">Already registered? Login</a></main>
+<script>
+document.getElementById('registerForm').addEventListener('submit',async e=>{
+ e.preventDefault();
+ const r=await fetch('http://localhost:8081/api/auth/register',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({username:username.value,email:email.value,password:password.value})});
+ const msg=document.getElementById('message');
+ if(r.ok){msg.textContent='Registration successful. Redirecting...';setTimeout(()=>location='/login',800);}
+ else {const d=await r.json().catch(()=>({}));msg.textContent=d.message||'Registration failed.';}
+});
+</script></body></html>
